@@ -11,6 +11,7 @@
 
 
 ### 增加了 web-api, 可以通过 http 接口来控制:
+启动 v2rayN 进程后, 做好相应配置(录入代理服务器, 或者订阅某个 vpn-url)
 - 切换到下一个 proxy-ip. http://localhost:8888/?cmd=changeProxyServer
 - 刷新 proxy-ip 列表(当配置了订阅链接来拉取 proxy-ip, 此选项很好用). http://localhost:8888/?cmd=flushProxyServerList
 - 获得 proxy-ip 信息. http://localhost:8888/?cmd=getProxyServerList
