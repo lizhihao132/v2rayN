@@ -19,6 +19,6 @@
 ### 后记:
 - 实际上 https://github.com/2dust/v2rayN 的本质是:
     -- 解析各种 vpn 节点分发协议 (http、vmess 等) 形成配置文件放在 v2ray-Core 的目录下. 见此代码:
-        https://github.com/2dust/v2rayN/blob/master/v2rayN/v2rayN/Handler/ShareHandler.cs
+        https://github.com/lizhihao132/v2rayN/blob/master/v2rayN/v2rayN/Handler/ShareHandler.cs
     -- 通过重启 v2ray-Core 来实现新配置生效. 见此代码:
-        https://github.com/2dust/v2rayN/blob/master/v2rayN/v2rayN/Handler/V2rayHandler.cs
+        https://github.com/lizhihao132/v2rayN/blob/master/v2rayN/v2rayN/Handler/V2rayHandler.cs
