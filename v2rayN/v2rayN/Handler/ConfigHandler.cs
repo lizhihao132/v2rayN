@@ -302,6 +302,7 @@ namespace v2rayN.Handler
         /// <returns></returns>
         public static int SetDefaultServer(ref Config config, int index)
         {
+            index = index % config.vmess.Count;
             if (index < 0 || index > config.vmess.Count - 1)
             {
                 return -1;

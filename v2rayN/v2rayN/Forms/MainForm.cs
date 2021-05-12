@@ -20,6 +20,30 @@ namespace v2rayN.Forms
         private List<int> lvSelecteds = new List<int>();
         private StatisticsHandler statistics = null;
 
+        /// lzh added -------
+        delegate int SetDefaultServerCallback(int index);
+        public void _SetDefaultServer(int index) {
+            SetDefaultServerCallback stcb = new SetDefaultServerCallback(SetDefaultServer);
+            this.Invoke(stcb, new object[] { index });
+        }
+        
+        delegate void UpdateSubscriptionProcessCallback();
+        public void _UpdateSubscriptionProcess()
+        {
+            UpdateSubscriptionProcessCallback stcb = new UpdateSubscriptionProcessCallback(UpdateSubscriptionProcess);
+            this.Invoke(stcb, new object[] {  });
+        }
+    
+        delegate Tuple<int> GetProxyServerListInfoCallback();
+        public Tuple<int> _GetProxyServerListInfo(){
+            GetProxyServerListInfoCallback stcb = new GetProxyServerListInfoCallback(GetProxyServerListInfo);
+            return (Tuple<int>)this.Invoke(stcb, new object[] { });
+        }
+        private Tuple<int> GetProxyServerListInfo(){
+            return new Tuple<int>(config.vmess.Count);
+        }
+
+
         #region Window 事件
 
         public MainForm()
@@ -758,12 +782,13 @@ namespace v2rayN.Forms
             //this.WindowState = FormWindowState.Minimized;
         }
 
+        
         /// <summary>
         /// 设置活动服务器
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
-        private int SetDefaultServer(int index)
+        public int SetDefaultServer(int index)
         {
             if (index < 0)
             {
@@ -1392,6 +1417,7 @@ namespace v2rayN.Forms
             UpdateSubscriptionProcess();
         }
 
+        
         /// <summary>
         /// the subscription update process
         /// </summary>
