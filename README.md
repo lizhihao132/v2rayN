@@ -17,6 +17,10 @@
 - 获得 proxy-ip 信息. http://localhost:8888/?cmd=getProxyServerList
 
 
+### 使用方法
+- 下载代码, 使用 vs2017 编译, Release 之后, 将得到的 exe 放进 v2rayN-Core 目录下替换, 双击启动.
+
+
 ### 后记:
 - 实际上 https://github.com/2dust/v2rayN 的本质是:
     - 解析各种 vpn 节点分发协议 (http、vmess 等) 形成配置文件放在 v2ray-Core 的目录下. 见此代码: https://github.com/lizhihao132/v2rayN/blob/master/v2rayN/v2rayN/Handler/ShareHandler.cs

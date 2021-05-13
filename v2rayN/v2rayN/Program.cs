@@ -147,10 +147,13 @@ namespace v2rayN
                     response.ContentType = "application/json;charset=UTF-8";
                     response.ContentEncoding = Encoding.UTF8;
                     response.AppendHeader("Content-Type", "application/json;charset=UTF-8");
+                    response.AppendHeader("Access-Control-Allow-Origin", "*");  //允许跨域.
 
                     using (StreamWriter writer = new StreamWriter(response.OutputStream, Encoding.UTF8))
                     {
-                        writer.Write(retStr);
+                        string res = "{\"res\":\"" + retStr + "\"}";
+                        System.Console.WriteLine("return response: " + res);
+                        writer.Write(res);
                         writer.Close();
                         response.Close();
                     }
